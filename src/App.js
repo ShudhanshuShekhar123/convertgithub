@@ -124,7 +124,7 @@ function App() {
 
 
   function getprofile(token) {
-
+    console.log(tokenauth,"tokenauth")
 
     let profileurl = `https://code-converter-github-integration.onrender.com/profile?token=${token}`;
 
@@ -148,6 +148,7 @@ function App() {
 
 
   const getrepos = () => {
+    console.log(tokenauth,"tokenauth")
     if (profile.length === 0) {
       alert(" Code Expired!!, You need to Login again to Coonect to Github")
     } else {
@@ -169,6 +170,7 @@ function App() {
 
 
   async function fetchRepositoryDetails(repoName) {
+    console.log(tokenauth,"tokenauth")
     // console.log(repoName,"reponame")
     // https://api.github.com/repos/{owner}/{repo}/branches
     setselectedrepo(repoName)
@@ -192,6 +194,7 @@ function App() {
 
 
   async function getRepositoryFile(branch1) {
+    console.log(tokenauth,"tokenauth")
     console.log(profile, repo, branch)
     setparticularbranch(branch1)
     try {
@@ -224,6 +227,7 @@ function App() {
 
 
   async function getfilecontent(path1) {
+    console.log(tokenauth,"tokenauth")
     console.log(particularbranch, "partivlar branch")
     console.log(path, "path")
 
@@ -256,6 +260,7 @@ function App() {
 
 
   const handleCommit = async () => {
+    console.log(tokenauth,"tokenauth")
     const notify3 = () => toast.success("Code PUshed Successfully", {
       position: "top-center",
       autoClose: 2000,
