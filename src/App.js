@@ -471,21 +471,21 @@ function App() {
     <div className="container">
 
 
-      <div className={toggle ? "a" : "b"} style={{ position: "relative", backgroundColor: "white", position: "absolute", top: "230px", zIndex: "200", left: "25%" }}>
+      <div className={toggle ? "a" : "b"} style={{   borderRadius:"10px", color:"white", position: "relative", backgroundColor: "black", position: "absolute", top: "230px", zIndex: "200", left: "25%" }}>
         <span onClick={closediv} style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", to: "50px", right: "40px", fontSize: "38px", backgroundColor: "black", color: "white", fontweight: '600', padding: "4px 9px", borderRadius: "6px" }}>&times;</span>
 
-        <div>
+        <div style={{paddingTop:"50px"}}> 
           {
-            content == "content" ? <div style={{ display: "flex", justifyContent: "center",gap:"80px", alignItems: "center" }}>
-              <h2 style={{ textAlign: "center", color: "black", }}>{header}</h2>
+            content == "content" ? <div style={{ color: "white", display: "flex", justifyContent: "center",gap:"80px", alignItems: "center" }}>
+              <h2 style={{   textAlign: "center", color: "white"}}>{header}</h2>
               <button onClick={finalpage} style={{ fontSize: "18px", fontWeight: "600", padding: "5px 10px", borderRadius: "8px", cursor: "pointer", backgroundColor: "teal", color: "white" }}>Click to Proceed</button>
             </div>
               :
-              <h2 style={{ textAlign: "center", color: "black" }}>{header}</h2>
+              <h2 style={{  textAlign: "center", color: "white" }}>{header}</h2>
           }
 
 
-          <div style={{ height: "50vh", width: "50vw", overflowY: "scroll", backgroundColor: "white", padding: "20px", marginTop: "30px", paddingTop: "20px" }}>
+          <div style={{ borderRadius:"10px", height: "50vh", width: "50vw", overflowY: "scroll", backgroundColor: "black", color:"white", padding: "20px", marginTop: "30px", paddingTop: "20px" }}>
 
             {
               content == "repos" ?
@@ -541,7 +541,7 @@ function App() {
       </div>
 
 
-      <div className='buttonsname'>
+      <div className='buttonsname' >
         <button onClick={getrepos}>SHOW ALL REPOS</button>
         <select hidden={toggle ? true : false} value={language} onChange={handlechangelanguage}>
           <option value="">Select Category</option>
@@ -561,9 +561,11 @@ function App() {
         )}
 
       </div>
-      <div className='text'>
+      <div className='text'  style={{filter: toggle ? "blur(8px)" : "none", }}>
         <textarea className='first'
-          style={{ width: "50%", height: "72vh", marginTop: "20px", resize: "none", }}
+          style={{  width: "50%", height: "72vh", marginTop: "20px", resize: "none", }}
+          disabled={toggle ? true :false}
+         
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Enter code..."
@@ -577,6 +579,7 @@ function App() {
             :
 
             <div className='second'
+              
               style={{ width: "50%", height: "74vh", marginTop: "20px", resize: "none", overflowY: "scroll" }}>
               {convertedCode.split('\n').map((line, index) => (
                 <div key={index}>{line}</div>

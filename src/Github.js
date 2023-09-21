@@ -6,7 +6,9 @@ const Github = () => {
 
   const handleclick = () => {
     window.location.href = ("https://code-converter-github-integration.onrender.com/auth")
+    // window.location.href = ("  http://localhost:8000/auth")
   }
+
 
 
   return (
