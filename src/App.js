@@ -578,6 +578,8 @@ function App() {
           </div>
             :
 
+
+            
             <div className='second'
               
               style={{ width: "50%", height: "74vh", marginTop: "20px", resize: "none", overflowY: "scroll" }}>
