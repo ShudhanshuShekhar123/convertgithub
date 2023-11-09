@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
 
 function App() {
   const [code, setCode] = useState('');
@@ -124,7 +125,7 @@ function App() {
 
 
   function getprofile(token) {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
 
     let profileurl = `https://code-converter-github-integration.onrender.com/profile?token=${token}`;
 
@@ -148,7 +149,7 @@ function App() {
 
 
   const getrepos = () => {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
     if (profile.length === 0) {
       alert(" Code Expired!!, You need to Login again to Coonect to Github")
     } else {
@@ -170,7 +171,7 @@ function App() {
 
 
   async function fetchRepositoryDetails(repoName) {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
     // console.log(repoName,"reponame")
     // https://api.github.com/repos/{owner}/{repo}/branches
     setselectedrepo(repoName)
@@ -194,7 +195,7 @@ function App() {
 
 
   async function getRepositoryFile(branch1) {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
     console.log(profile, repo, branch)
     setparticularbranch(branch1)
     try {
@@ -227,7 +228,7 @@ function App() {
 
 
   async function getfilecontent(path1) {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
     console.log(particularbranch, "partivlar branch")
     console.log(path, "path")
 
@@ -260,7 +261,7 @@ function App() {
 
 
   const handleCommit = async () => {
-    console.log(tokenauth,"tokenauth")
+    console.log(tokenauth, "tokenauth")
     const notify3 = () => toast.success("Code PUshed Successfully", {
       position: "top-center",
       autoClose: 2000,
@@ -468,24 +469,24 @@ function App() {
 
   return (
 
-    <div className="container">
+    <DIV className="container">
 
 
-      <div className={toggle ? "a" : "b"} style={{   borderRadius:"10px", color:"white", position: "relative", backgroundColor: "black", position: "absolute", top: "230px", zIndex: "200", left: "25%" }}>
+      <div className={toggle ? "a" : "b"} style={{ borderRadius: "10px", color: "white", position: "relative", backgroundColor: "black", position: "absolute", top: "230px", zIndex: "200", left: "25%" }}>
         <span onClick={closediv} style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", to: "50px", right: "40px", fontSize: "38px", backgroundColor: "black", color: "white", fontweight: '600', padding: "4px 9px", borderRadius: "6px" }}>&times;</span>
 
-        <div style={{paddingTop:"50px"}}> 
+        <div style={{ paddingTop: "50px" }}>
           {
-            content == "content" ? <div style={{ color: "white", display: "flex", justifyContent: "center",gap:"80px", alignItems: "center" }}>
-              <h2 style={{   textAlign: "center", color: "white"}}>{header}</h2>
+            content == "content" ? <div style={{ color: "white", display: "flex", justifyContent: "center", gap: "80px", alignItems: "center" }}>
+              <h2 style={{ textAlign: "center", color: "white" }}>{header}</h2>
               <button onClick={finalpage} style={{ fontSize: "18px", fontWeight: "600", padding: "5px 10px", borderRadius: "8px", cursor: "pointer", backgroundColor: "teal", color: "white" }}>Click to Proceed</button>
             </div>
               :
-              <h2 style={{  textAlign: "center", color: "white" }}>{header}</h2>
+              <h2 style={{ textAlign: "center", color: "white" }}>{header}</h2>
           }
 
 
-          <div style={{ borderRadius:"10px", height: "50vh", width: "50vw", overflowY: "scroll", backgroundColor: "black", color:"white", padding: "20px", marginTop: "30px", paddingTop: "20px" }}>
+          <div style={{ borderRadius: "10px", height: "50vh", width: "50vw", overflowY: "scroll", backgroundColor: "black", color: "white", padding: "20px", marginTop: "30px", paddingTop: "20px" }}>
 
             {
               content == "repos" ?
@@ -521,7 +522,7 @@ function App() {
                       content == "push" ?
                         <div style={{ display: "flex", flexDirection: "column" }}>
                           <input onChange={(e) => setcommitmessage(e.target.value)} style={{ padding: "10px 6px", fontSize: "16px", fontWeight: "600", marginBottom: "10px" }} placeholder='Enter commit message' />
-                          <button onClick={handleCommit} style={{ width: "200px", margin: "auto", padding: "9px 10px", fontSize: "17px", fontWeight: "600" , borderRadius:"6px", cursor:"pointer"}}>PUSH TO GITHUB</button>
+                          <button onClick={handleCommit} style={{ width: "200px", margin: "auto", padding: "9px 10px", fontSize: "17px", fontWeight: "600", borderRadius: "6px", cursor: "pointer" }}>PUSH TO GITHUB</button>
 
                         </div>
 
@@ -561,11 +562,11 @@ function App() {
         )}
 
       </div>
-      <div className='text'  style={{filter: toggle ? "blur(8px)" : "none", }}>
+      <div className='text' style={{ filter: toggle ? "blur(8px)" : "none", }}>
         <textarea className='first'
-          style={{  width: "50%", height: "72vh", marginTop: "20px", resize: "none", }}
-          disabled={toggle ? true :false}
-         
+          style={{  height: "72vh", marginTop: "20px", resize: "none", }}
+          disabled={toggle ? true : false}
+
           value={code}
           onChange={(e) => setCode(e.target.value)}
           placeholder="Enter code..."
@@ -579,10 +580,10 @@ function App() {
             :
 
 
-            
+
             <div className='second'
-              
-              style={{ width: "50%", height: "74vh", marginTop: "20px", resize: "none", overflowY: "scroll" }}>
+
+              style={{ height: "74vh", marginTop: "20px", resize: "none", overflowY: "scroll" }}>
               {convertedCode.split('\n').map((line, index) => (
                 <div key={index}>{line}</div>
               ))}
@@ -626,8 +627,132 @@ function App() {
       <div className="right-section">
         <pre>{convertedCode}</pre>
       </div> */}
-    </div>
+    </DIV>
   )
 }
 
 export default App;
+
+
+const DIV = styled.div`
+
+
+.first{
+  width: 50%;
+}
+
+
+.second{
+  width: 50%;
+}
+
+
+select{
+  text-align: center;
+}
+
+@media screen and (min-width: 501px) and  (max-width:1180px) {
+
+    .buttonsname{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      
+      width: 90%;
+      margin: auto;
+    
+    }
+  
+
+    .buttonsname button{
+      margin-bottom: 10px;
+      width: 90%;
+    }
+
+    .buttonsname select{
+      margin-bottom: 10px;
+      width: 90%;
+    }
+
+  }
+
+
+    @media screen and (min-width: 401px) and  (max-width:500px) {
+
+.buttonsname{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  
+  width: 90%;
+  margin: auto;
+
+}
+
+
+.buttonsname button{
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.buttonsname select{
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+
+
+}
+
+
+
+@media screen and (min-width: 301px) and  (max-width:400px) {
+
+.buttonsname{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  
+  width: 90%;
+  margin: auto;
+
+}
+
+
+.buttonsname button{
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.buttonsname select{
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+
+
+}
+
+
+@media screen and (min-width: 301px) and  (max-width:700px) {
+
+
+  .text{
+
+        display: flex;
+        flex-direction: column;
+  }
+
+  .first{
+    width: 90%;
+    margin: auto;
+  }
+
+  .second{
+    width: 90%;
+    margin: auto;
+  }
+
+}
+
+
+
+
+`
