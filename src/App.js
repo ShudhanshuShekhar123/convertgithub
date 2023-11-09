@@ -542,6 +542,7 @@ function App() {
       </div>
 
 
+      
       <div className='buttonsname' >
         <button onClick={getrepos}>SHOW ALL REPOS</button>
         <select hidden={toggle ? true : false} value={language} onChange={handlechangelanguage}>
@@ -651,14 +652,19 @@ select{
   text-align: center;
 }
 
+
+
 @media screen and (min-width: 501px) and  (max-width:1180px) {
+
 
     .buttonsname{
       display: grid;
       grid-template-columns: repeat(2,1fr);
-      
+      /* border:4px solid red; */
       width: 90%;
       margin: auto;
+     
+
     
     }
   
@@ -666,11 +672,16 @@ select{
     .buttonsname button{
       margin-bottom: 10px;
       width: 90%;
+      margin-left: 18px;
+      
     }
+
+  
 
     .buttonsname select{
       margin-bottom: 10px;
       width: 90%;
+      margin-left: 18px;
     }
 
   }
@@ -691,11 +702,13 @@ select{
 .buttonsname button{
   margin-bottom: 10px;
   width: 90%;
+  margin-left: 12px;
 }
 
 .buttonsname select{
   margin-bottom: 10px;
   width: 90%;
+  margin-left: 12px;
 }
 
 
@@ -719,11 +732,13 @@ select{
 .buttonsname button{
   margin-bottom: 10px;
   width: 90%;
+  margin-left: 18px;
 }
 
 .buttonsname select{
   margin-bottom: 10px;
   width: 90%;
+  margin-left: 18px;
 }
 
 
