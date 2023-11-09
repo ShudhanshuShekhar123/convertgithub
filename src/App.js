@@ -565,7 +565,7 @@ function App() {
       </div>
       <div className='text' style={{ filter: toggle ? "blur(8px)" : "none", }}>
         <textarea className='first'
-          style={{  height: "72vh", marginTop: "20px", resize: "none", }}
+          style={{   marginTop: "20px", resize: "none", }}
           disabled={toggle ? true : false}
 
           value={code}
@@ -584,7 +584,7 @@ function App() {
 
             <div className='second'
 
-              style={{ height: "74vh", marginTop: "20px", resize: "none", overflowY: "scroll" }}>
+              style={{ marginTop: "20px", resize: "none", overflowY: "scroll" }}>
               {convertedCode.split('\n').map((line, index) => (
                 <div key={index}>{line}</div>
               ))}
@@ -640,11 +640,13 @@ const DIV = styled.div`
 
 .first{
   width: 50%;
+  height: 72vh;
 }
 
 
 .second{
   width: 50%;
+  height: 74vh;
 }
 
 
@@ -758,11 +760,13 @@ select{
   .first{
     width: 90%;
     margin: auto;
+    height: 45vh;
   }
 
   .second{
-    width: 90%;
+    width: 93%;
     margin: auto;
+    height: 45vh;
   }
 
 }
